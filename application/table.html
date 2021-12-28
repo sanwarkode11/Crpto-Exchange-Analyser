@@ -1,0 +1,100 @@
+
+
+<html>
+<head>
+
+  <style>
+main {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  max-width: 100%;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+th {
+  background-color: #555;
+  color: #fff;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5em 1em;
+}
+
+td::before {
+  display: none;
+}
+
+@media screen and (max-width: 680px) {
+ table {
+   border: 0;
+   display: block;
+   box-shadow: none;
+ }
+
+ thead {
+   position: absolute;
+   opacity: 0;
+ }
+
+ tbody {
+   display: block;
+   min-width: 19em;
+   max-width: 25em;
+ }
+
+ tr {
+   border-top: 2px solid #3c3c3b;
+   border-bottom: 2px solid #3c3c3b;
+   display: block;
+   margin-bottom: 1em;
+ }
+
+ td {
+   border-bottom: 1px solid #3c3c3b;
+   display: flex;
+ }
+
+ td::before {
+   display: inline-block;
+   font-weight: bold;
+   margin-right: auto;
+   padding-right: 1em;
+ }
+
+ td:last-child {
+   border-bottom: 0;
+ }
+}
+  </style>
+</head>
+<body>
+<main>
+<table>
+  <tr>
+    <th>&nbsp;Crpto Name</th>
+    <th>Wazirx price</th>
+    <th>Binance Price</th>
+    <th>Wazirx to Binance difference in %</th>
+  </tr>
+  {% for k, value in dict.items %}
+  <tr>
+    <td>&nbsp;{{ k }}</td>
+    <td>{{ value.wazirx_price }}</td>
+    <td>{{ value.binance_price }}</td>
+    <td>{{ value.difference }}</td>
+  </tr>
+  {% endfor %}
+
+</table>
+</main>
+</body>
+
+</html>
